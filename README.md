@@ -1,4 +1,4 @@
-# SkyNet-01
+# SkyNet-01 -> Calculator using Jac
 
 Welcome to the official repository of **SkyNet-01**, a team submission for Assignment Jac in 5 minites. This repository demonstrates our work with the Jac programming language, focusing on AI based Calculations.
 
