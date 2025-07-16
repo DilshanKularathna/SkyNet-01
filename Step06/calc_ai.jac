@@ -12,11 +12,10 @@ walker Calculator {
 }
 
 node calculated {
-    # print("Calculation completed.");
+    has value: str;
+    can doneCalc with Calculator entry;
 }
 
 with entry {
-    # print(calculate("2 + 2"));
-    # print(calculate("3 * 5"));
     root spawn Calculator(input("Enter a mathematical expression (e.g., 2 + 2): "));
 }
