@@ -1,35 +1,22 @@
-"""A Number Guessing Game"""
+import from mtllm.llm {Model}
 
-import random;
-import from mtllm.llm { Model }
+glob llm =  Model(model_name="gemini/gemini-2.0-flash", verbose=False);
 
+# Calculations with MTLLM
+def calculate_value(math_exp: str) -> str by llm();
 
-# glob llm = Model(model_name="gpt-4o",verbose=False);
- glob llm =
-    Model(model_name="gemini/gemini-2.0-flash", verbose=False);
+walker Calculator {
+    has math_exp: str;
 
-
-"""Provide a fun hint if guess is incorrect"""
-def give_hint(guess: int, correct_number: int) -> str byllm();
-
-
-walker GuessGame {
-    has guess: int;
-
-    can start with `root entry;
-    can process_guess with turn entry;
+    can calculate with `root entry;
 }
 
-
-node turn {
-    has correct_number: int = random.randint(1, 10);
+node calculated {
+    # print("Calculation completed.");
 }
 
-
-# Will run when in CLI mode (not in cloud)
- with entry:_main_ {
-    root spawn GuessGame(3);
-    root spawn GuessGame(4);
-    root spawn GuessGame(5);
-    root spawn GuessGame(6);
+with entry {
+    # print(calculate("2 + 2"));
+    # print(calculate("3 * 5"));
+    root spawn Calculator(input("Enter a mathematical expression (e.g., 2 + 2): "));
 }
